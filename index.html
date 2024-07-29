@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rozenkrans stap-voor-stap</title>
+
+    <style>
+        [x-cloak] { display: none !important; }
+        p:not(.i)::before {
+            content: "\"";
+        }
+        p:not(.i)::after {
+            content: "\"";
+        }
+
+        .think {
+            border: 2px dotted black;
+            padding: 5px;
+            opacity: 0.75;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function geheimen() {
+            const dayOfWeek = (new Date()).getDay();
+            const mysteries = [
+                [
+                    {
+                        title: 'Jezus verrijst uit de doden',
+                        from: 'Lucas 24:1-5',
+                        description: 'Op zondagochtend gingen de vrouwen heel vroeg naar het graf. Ze hadden de olie bij zich die ze klaargemaakt hadden. Maar toen ze bij het graf kwamen, zagen ze dat de steen voor het graf weggerold was. Ze gingen naar binnen. Maar het lichaam van de Heer Jezus lag er niet. De vrouwen schrokken vreselijk. Plotseling stonden er twee engelen bij hen, in stralende kleren. De vrouwen waren zo bang, dat ze niet naar hen durfden te kijken. De engelen zeiden: \'Waarom zoeken jullie een levende man in een graf?\''
+                    },
+                    {
+                        title: 'Jezus stijgt op ten hemel',
+                        from: 'Marcus 16:19',
+                        description: 'Toen de Heer Jezus dat gezegd had, liet God hem naar de hemel gaan. Daar ging Jezus naast God zitten, aan de rechterkant',
+                    },
+                    {
+                        title: 'De heilige geest daalt neer over Maria en de apostelen',
+                        from: 'Handelingen 2:1-4',
+                        description: 'Toen het Joodse Pinksterfeest begon, waren alle gelovigen bij elkaar in een huis. Opeens kwam er uit de hemel een vreemd geluid. Het klonk alsof het hard begon te waaien. Het was overal in huis te horen. Ook zagen de gelovigen iets dat op vuur leek. Dat vuur verdeelde zich in vlammen, en op iedereen kwam een vlam neer. Zo kwam de heilige Geest in alle gelovigen. Daardoor begonnen ze te spreken in vreemde talen.'
+                    },
+                    {
+                        title: 'Maria wordt in de hemel opgenomen',
+                        from: 'Lucas 1:48-49',
+                        description: 'Hij koos mij uit, mij, een heel gewoon meisje. Nu zal iedereen over mij zeggen: \'Zij is gezegend\'. Want God, die machtig is en heilig, heeft iets geweldigs met mij gedaan.'
+                    },
+                    {
+                        title: 'Maria wordt in de hemel gekroond',
+                        from: 'Openbaring 12:1',
+                        description: 'Daarna was er aan de hemel een belangrijk teken te zien. Het was een vrouw. Ze had de zon als mantel om zich heen, ze had de maan onder haar voeten en een kroon van twaalf sterren op haar hoofd.'
+                    }
+                ],
+                [
+                    {
+                        title: 'De engel Gabriël brengt de blijde boodschap aan Maria',
+                        from: 'Lucas 1:26-27',
+                        description: 'God stuurde de engel Gabriël naar Nazaret, een stad in Galilea. Elisabet was toen zes maanden zwanger. De engel ging naar Maria, een jonge vrouw die zou gaan trouwen met Jozef. Jozef kwam uit de familie van koning David. De engel zei tegen Maria: \'Ik groet je, Maria. God heeft jou uitgekozen. Hij zal bij je zijn.\'Maria schrok van de woorden van de engel. Ze vroeg zich af wat hij bedoelde. Toen zei de engel tegen Maria: \'Je hoeft niet bang te zijn, Maria. God heeft je uitgekozen voor iets moois. Je zult zwanger worden en een zoon krijgen. Je moet hem Jezus noemen. Jezus zal heel belangrijk zijn, hij zal Zoon van de allerhoogste God genoemd worden. En Godd, de Heer, zal hem koning maken, net zoals zijn voorvader David dat was. Jezus zal voor altijd koning van Israël zijn. Aan zijn macht komt geen einde\''
+                    },
+                    {
+                        title: 'Maria bezoekt haar nicht Elisabet',
+                        from: 'Lucas 1:39-42',
+                        description: 'Maria ging snel op reis. Ze ging naar het bergland van Judea, naar de stad waar Zacharias en Elisabet woonden. Ze ging hun huis binnen en groette Elisabet. Toen Elisabet de stem van Maria hoorde, trappelde het kind in haar buik. De heilige Geest kwam in Elisabet, en zij riep naar Maria: \'Jij bent gezegend, meer dan alle andere vrouwen! En ook het kind dat je krijgt, zal gezegend zijn!\''
+                    },
+                    {
+                        title: 'Jezus wordt geboren in een stal van Betlehem',
+                        from: 'Lucas 2:1-7',
+                        description: 'In die tijd werd er een bevel van keizer Augustus bekendgemaakt. Hij wilde alle inwoners van het Romeinse rijk laten tellen. Het was de eerste keer dat dit gebeurde. Het was in de tijd dat Quirinius de provincie Syrië bestuurde. Iedereen moest geteld worden in de plaats waar zijn familie vandaan kwam. Daarom gingen alle mensen op reis. Ook Jozef moest op reis. Hij ging van Nazaret in Galilea naar Betlehem in Judea. Want hij kwam uit de familie van David, en David kwam uit Betlehem. Jozef ging samen met Maria naar Betlehem. Maria zou met Jozef gaan trouwens, en ze was zwanger. Toen Jozef en Maria in Betlehem waren, werd het kind geboren. Het was Maria\'s eerste kind, een jongen. Maria wikkelde hem in een doek, en legde hem in een voerbak voor de dieren. Want er was voor hen nergens plaats om te slapen.'
+                    },
+                    {
+                        title: 'Jezus wordt in de tempel aan God opgedragen',
+                        from: 'Lucas 2:21-24',
+                        description: 'Een week later werd het kind besneden. Maria en Jozef noemden hem Jezus. Dat was de naam die de engel genoemd had, nog voordat Maria zwanger was. Jozef en Maria namen Jezus mee naar de tempel in Jaruzalem. Het was veertig dagen na de bevalling. Want zo lang duurt het voordat een vrouw na een bevalling weer rein is. Dat staat in de wet van Mozes. Jozef en Maria brachten Jezus naar de tempel om hem aan God te laten zien. Want in de wet van God staat: Elk eerste kind dat een jongen is, is voor God. Ook brachten ze een offer aan God. Want in de wet staat: Breng als offer twee tortelduiven of twee gewone jonge duiven.'
+                    },
+                    {
+                        title: 'Jezus wordt in de tempel wedergevonden',
+                        from: 'Lucas 2:41-47',
+                        description: 'Elk jaar gingen Jozef en Maria naar Jeruzalem om het Joodse Paasfeest te vieren. Op een keer ging Jezus met zijn ouders mee. Hij was toen twaalf jaar. Na het feest gingen Jozef en Maria naar huis. Maar Jezus bleef in Jeruzalem, zonder dat zijn ouders dat wisten. Ze dachten dat hun zoon met familie of vrienden meeliep. Pas \'s avonds gingen ze hem zoeken. Maar ze konden hem nergen vinden. Toen gingen Jozef en Maria terug naar Jeruzalem, om Jezus daar te zoeken. Jozef en Maria vonden Jezus na drie dagen. Hij zat in de tempel bij de leraren die daar waren. Hij luisterde naar hen en stelde vragen. Iedereen die hem hoorde praten, was verbaasd. Want hij zei heel verstandige dingen.'
+                    }
+                ],
+                [
+                    {
+                        title: 'Jezus bidt in doodsangst tot zijn hemelse Vader',
+                        from: 'Matteüs 26:36-39',
+                        description: 'Jezus ging met de leerlingen naar een plek die Getsemane heette. Hij zei tegen de leerlingen: \'Ik ga daar verderop bidden. Blijf hier wachten tot ik terugkom.\' Jezus nam Petrus mee, en de broers Jakobus en Johannes. Jezus werd verdrietig en bang. Hij zei: \'Ik houd het niet meer uit van verdriet. Blijven jullie maar hier en blijf wakker, net als ik.\' Jezus liep nog een klein stukje verder. Hij knielde op de grond en begon te bidden: \'Mijn Vader, als het kan, zeg dan dat ik niet hoef te lijden. Maar doe alleen wat u wilt, niet wat ik wil.\''
+                    },
+                    {
+                        title: 'Jezus wordt gegeseld',
+                        from: 'Matteüs 27:26',
+                        description: 'Toen liet Pilatus Barabbas vrij. Maar hij gaf opdracht om Jezus met de zweep te slaan. Daarna gaf hij hem aan zijn soldaten, om hem aan het kruis te hangen.'
+                    },
+                    {
+                        title: 'Jezus wordt met doornen gekroond',
+                        from: 'Matteüs 27:27-29',
+                        description: 'De soldaten brachten Jezus naar het paleis van Pilatus. Ze riepen iedereen erbij. Toen trokken ze Jezus zijn kleren uit en deden hem een rode mantel aan. Ze maakten een kroon van doorntakken en zetten die op zijn hoofd. En ze gaven hem een stok in zijn rechterhand. Ze knielden voor hem en zeiden spottend: \'Wij groeten u, koning van de Joden!\''
+                    },
+                    {
+                        title: 'Jezus draagt zijn kruis naar de berg van Calvarie',
+                        from: 'Marcus 15:21-22',
+                        description: 'Er kwam net een man de stad in. Het was Simon van Cyrene, de vader van Alexander en Rufus. Hij moest van de soldaten meekomen, om het kruis te dragen. Ze brachten Jezus naar de plaats Golgota. Die naam betekent schedelplaats'
+                    },
+                    {
+                        title: 'Jezus sterft aan het kruis',
+                        from: 'Lucas 23:33-46',
+                        description: 'Op een heuvel die de Schedel heet, hingen de soldaten Jezus aan het kruis. Ook misdadigers werden aan een kruis gehangen. Het kruis van Jezus stond tussen de twee andere kruisen in. Jezus zei: \'Vader vergeef de mensen die mij doden, want ze weten niet wat ze doen\' ... Om ongeveer twaalf uur \'s middags werd het opeens donker in het hele land. Drie uur lang bleef het donker, omdat de zon geen licht meer gaf. En in de tempel scheurde het gordijn voor de heilige zaal doormidden. Toen riep Jezus: \'Vader, mijn leven is in uw handen!\' Dat waren zijn laatste woorden. Zo stierf hij.'
+                    },
+                ],
+                [
+                    {
+                        title: 'Jezus verrijst uit de doden',
+                        from: 'Lucas 24:1-5',
+                        description: 'Op zondagochtend gingen de vrouwen heel vroeg naar het graf. Ze hadden de olie bij zich die ze klaargemaakt hadden. Maar toen ze bij het graf kwamen, zagen ze dat de steen voor het graf weggerold was. Ze gingen naar binnen. Maar het lichaam van de Heer Jezus lag er niet. De vrouwen schrokken vreselijk. Plotseling stonden er twee engelen bij hen, in stralende kleren. De vrouwen waren zo bang, dat ze niet naar hen durfden te kijken. De engelen zeiden: \'Waarom zoeken jullie een levende man in een graf?\''
+                    },
+                    {
+                        title: 'Jezus stijgt op ten hemel',
+                        from: 'Marcus 16:19',
+                        description: 'Toen de Heer Jezus dat gezegd had, liet God hem naar de hemel gaan. Daar ging Jezus naast God zitten, aan de rechterkant',
+                    },
+                    {
+                        title: 'De heilige geest daalt neer over Maria en de apostelen',
+                        from: 'Handelingen 2:1-4',
+                        description: 'Toen het Joodse Pinksterfeest begon, waren alle gelovigen bij elkaar in een huis. Opeens kwam er uit de hemel een vreemd geluid. Het klonk alsof het hard begon te waaien. Het was overal in huis te horen. Ook zagen de gelovigen iets dat op vuur leek. Dat vuur verdeelde zich in vlammen, en op iedereen kwam een vlam neer. Zo kwam de heilige Geest in alle gelovigen. Daardoor begonnen ze te spreken in vreemde talen.'
+                    },
+                    {
+                        title: 'Maria wordt in de hemel opgenomen',
+                        from: 'Lucas 1:48-49',
+                        description: 'Hij koos mij uit, mij, een heel gewoon meisje. Nu zal iedereen over mij zeggen: \'Zij is gezegend\'. Want God, die machtig is en heilig, heeft iets geweldigs met mij gedaan.'
+                    },
+                    {
+                        title: 'Maria wordt in de hemel gekroond',
+                        from: 'Openbaring 12:1',
+                        description: 'Daarna was er aan de hemel een belangrijk teken te zien. Het was een vrouw. Ze had de zon als mantel om zich heen, ze had de maan onder haar voeten en een kroon van twaalf sterren op haar hoofd.'
+                    }
+                ],
+                [
+                    {
+                        title: 'Jezus wordt gedoopt in de Jordaan',
+                        from: 'Matteüs 3:16-17',
+                        description: 'Jezus werd gedoopt. Zodra hij weer uit het water kwam, ging de hemel open. Jezus zag dat de Geest van God naar hem toe kwam in de vorm van een duif. En Gods stem klonk uit de hemel: \'Hij alleen is mijn Zoon. Mijn liefde voor hem is groot\''
+                    },
+                    {
+                        title: 'Jezus openbaart zich op de bruiloft te Kana',
+                        from: 'Johannes 2:1-5',
+                        description: 'Twee dagen later was er een bruiloft in Kana, een plaats in Galilea. De moeder van Jezus was op het feest, en ook Jezus en zijn leerlingen waren uitgenodigd. Toen de wijn opraakte, zei de moeder van Jezus: \'Ze hebben geen wijn meer!\' Jezus zei tegen haar: \'Bemoei u niet met wat ik moet doen. Het juiste moment voor mij is nog niet gekomen.\' Toen zei de moeder van Jezus tegen de dienaren op het feest: \'Doe precies wat hij zegt.\''
+                    },
+                    {
+                        title: 'Jezus verkondigt het Rijk Gods en roept op tot bekering',
+                        from: 'Marcus 1:15',
+                        description: 'Hij zei: \'Gods nieuwe wereld is dichtbij. Geloof dat goede nieuws! Dit is het moment om je leven te veranderen.\''
+                    },
+                    {
+                        title: 'Jezus verandert van gedaante op de berg Tabor',
+                        from: 'Matteüs 17:1-2',
+                        description: 'Zes dagen later ging Jezus een hoge berg op. Petrus mocht met hem mee, en ook de broers Jakobus en Johannes. Boven op de berg waren ze alleen. De leerlingen zagen dat Jezus veranderde. Zijn gezicht begon te stralen, net als de zon. En zijn kleren werden zo wit als helder licht.'
+                    },
+                    {
+                        title: ' Jezus stelt de eucharistie in tijdens het Laatste Avondmaal',
+                        from: 'Matteüs 26:26',
+                        description: 'Tijdens het eten nam Jezus een brood. Hij dankte God, brak het brood in stukken en deelde het uit. Hij zei: \'Kijk, dit is mijn lichaam. Eet hiervan\''
+                    }
+                ],
+                [
+                    {
+                        title: 'Jezus bidt in doodsangst tot zijn hemelse Vader',
+                        from: 'Matteüs 26:36-39',
+                        description: 'Jezus ging met de leerlingen naar een plek die Getsemane heette. Hij zei tegen de leerlingen: \'Ik ga daar verderop bidden. Blijf hier wachten tot ik terugkom.\' Jezus nam Petrus mee, en de broers Jakobus en Johannes. Jezus werd verdrietig en bang. Hij zei: \'Ik houd het niet meer uit van verdriet. Blijven jullie maar hier en blijf wakker, net als ik.\' Jezus liep nog een klein stukje verder. Hij knielde op de grond en begon te bidden: \'Mijn Vader, als het kan, zeg dan dat ik niet hoef te lijden. Maar doe alleen wat u wilt, niet wat ik wil.\''
+                    },
+                    {
+                        title: 'Jezus wordt gegeseld',
+                        from: 'Matteüs 27:26',
+                        description: 'Toen liet Pilatus Barabbas vrij. Maar hij gaf opdracht om Jezus met de zweep te slaan. Daarna gaf hij hem aan zijn soldaten, om hem aan het kruis te hangen.'
+                    },
+                    {
+                        title: 'Jezus wordt met doornen gekroond',
+                        from: 'Matteüs 27:27-29',
+                        description: 'De soldaten brachten Jezus naar het paleis van Pilatus. Ze riepen iedereen erbij. Toen trokken ze Jezus zijn kleren uit en deden hem een rode mantel aan. Ze maakten een kroon van doorntakken en zetten die op zijn hoofd. En ze gaven hem een stok in zijn rechterhand. Ze knielden voor hem en zeiden spottend: \'Wij groeten u, koning van de Joden!\''
+                    },
+                    {
+                        title: 'Jezus draagt zijn kruis naar de berg van Calvarie',
+                        from: 'Marcus 15:21-22',
+                        description: 'Er kwam net een man de stad in. Het was Simon van Cyrene, de vader van Alexander en Rufus. Hij moest van de soldaten meekomen, om het kruis te dragen. Ze brachten Jezus naar de plaats Golgota. Die naam betekent schedelplaats'
+                    },
+                    {
+                        title: 'Jezus sterft aan het kruis',
+                        from: 'Lucas 23:33-46',
+                        description: 'Op een heuvel die de Schedel heet, hingen de soldaten Jezus aan het kruis. Ook misdadigers werden aan een kruis gehangen. Het kruis van Jezus stond tussen de twee andere kruisen in. Jezus zei: \'Vader vergeef de mensen die mij doden, want ze weten niet wat ze doen\' ... Om ongeveer twaalf uur \'s middags werd het opeens donker in het hele land. Drie uur lang bleef het donker, omdat de zon geen licht meer gaf. En in de tempel scheurde het gordijn voor de heilige zaal doormidden. Toen riep Jezus: \'Vader, mijn leven is in uw handen!\' Dat waren zijn laatste woorden. Zo stierf hij.'
+                    },
+                ],
+                [
+                    {
+                        title: 'De engel Gabriël brengt de blijde boodschap aan Maria',
+                        from: 'Lucas 1:26-27',
+                        description: 'God stuurde de engel Gabriël naar Nazaret, een stad in Galilea. Elisabet was toen zes maanden zwanger. De engel ging naar Maria, een jonge vrouw die zou gaan trouwen met Jozef. Jozef kwam uit de familie van koning David. De engel zei tegen Maria: \'Ik groet je, Maria. God heeft jou uitgekozen. Hij zal bij je zijn.\' Maria schrok van de woorden van de engel. Ze vroeg zich af wat hij bedoelde. Toen zei de engel tegen Maria: \'Je hoeft niet bang te zijn, Maria. God heeft je uitgekozen voor iets moois. Je zult zwanger worden en een zoon krijgen. Je moet hem Jezus noemen. Jezus zal heel belangrijk zijn, hij zal Zoon van de allerhoogste God genoemd worden. En Godd, de Heer, zal hem koning maken, net zoals zijn voorvader David dat was. Jezus zal voor altijd koning van Israël zijn. Aan zijn macht komt geen einde\''
+                    },
+                    {
+                        title: 'Maria bezoekt haar nicht Elisabet',
+                        from: 'Lucas 1:39-42',
+                        description: 'Maria ging snel op reis. Ze ging naar het bergland van Judea, naar de stad waar Zacharias en Elisabet woonden. Ze ging hun huis binnen en groette Elisabet. Toen Elisabet de stem van Maria hoorde, trappelde het kind in haar buik. De heilige Geest kwam in Elisabet, en zij riep naar Maria: \'Jij bent gezegend, meer dan alle andere vrouwen! En ook het kind dat je krijgt, zal gezegend zijn!\''
+                    },
+                    {
+                        title: 'Jezus wordt geboren in een stal van Betlehem',
+                        from: 'Lucas 2:1-7',
+                        description: 'In die tijd werd er een bevel van keizer Augustus bekendgemaakt. Hij wilde alle inwoners van het Romeinse rijk laten tellen. Het was de eerste keer dat dit gebeurde. Het was in de tijd dat Quirinius de provincie Syrië bestuurde. Iedereen moest geteld worden in de plaats waar zijn familie vandaan kwam. Daarom gingen alle mensen op reis. Ook Jozef moest op reis. Hij ging van Nazaret in Galilea naar Betlehem in Judea. Want hij kwam uit de familie van David, en David kwam uit Betlehem. Jozef ging samen met Maria naar Betlehem. Maria zou met Jozef gaan trouwens, en ze was zwanger. Toen Jozef en Maria in Betlehem waren, werd het kind geboren. Het was Maria\'s eerste kind, een jongen. Maria wikkelde hem in een doek, en legde hem in een voerbak voor de dieren. Want er was voor hen nergens plaats om te slapen.'
+                    },
+                    {
+                        title: 'Jezus wordt in de tempel aan God opgedragen',
+                        from: 'Lucas 2:21-24',
+                        description: 'Een week later werd het kind besneden. Maria en Jozef noemden hem Jezus. Dat was de naam die de engel genoemd had, nog voordat Maria zwanger was. Jozef en Maria namen Jezus mee naar de tempel in Jaruzalem. Het was veertig dagen na de bevalling. Want zo lang duurt het voordat een vrouw na een bevalling weer rein is. Dat staat in de wet van Mozes. Jozef en Maria brachten Jezus naar de tempel om hem aan God te laten zien. Want in de wet van God staat: Elk eerste kind dat een jongen is, is voor God. Ook brachten ze een offer aan God. Want in de wet staat: Breng als offer twee tortelduiven of twee gewone jonge duiven.'
+                    },
+                    {
+                        title: 'Jezus wordt in de tempel wedergevonden',
+                        from: 'Lucas 2:41-47',
+                        description: 'Elk jaar gingen Jozef en Maria naar Jeruzalem om het Joodse Paasfeest te vieren. Op een keer ging Jezus met zijn ouders mee. Hij was toen twaalf jaar. Na het feest gingen Jozef en Maria naar huis. Maar Jezus bleef in Jeruzalem, zonder dat zijn ouders dat wisten. Ze dachten dat hun zoon met familie of vrienden meeliep. Pas \'s avonds gingen ze hem zoeken. Maar ze konden hem nergen vinden. Toen gingen Jozef en Maria terug naar Jeruzalem, om Jezus daar te zoeken. Jozef en Maria vonden Jezus na drie dagen. Hij zat in de tempel bij de leraren die daar waren. Hij luisterde naar hen en stelde vragen. Iedereen die hem hoorde praten, was verbaasd. Want hij zei heel verstandige dingen.'
+                    }
+                ]
+            ]
+            const names = [
+                'Glorievolle geheimen',
+                'Blijde geheimen',
+                'Droevige geheimen',
+                'Glorievolle geheimen',
+                'Geheimen van het licht',
+                'Droevige geheimen',
+                'Blijde geheimen',
+            ]
+            return {
+                name: names[dayOfWeek],
+                mysteries: mysteries[dayOfWeek]
+            }
+
+        }
+    </script>
+
+    <main x-cloak x-data="{
+        step: 0,
+    }">
+        <!-- start -->
+        <div x-show="step == 0">
+            <h1>Stap voor stap de rozenkrans bidden</h1>
+            <div>
+                <h2>Waarom</h2>
+                <p class="i">
+                    Deze tool kan handig zijn als u geen rozenkrans heeft, aangezien het dan lastig is om bij te houden bij welk gebed u bent
+                </p>
+            </div>
+            <div>
+                <h2>Hoe werkt het?</h2>
+                <ul>
+                    <li>Klik elke keer op de <button style="pointer-events: none;">knop</button> om naar het volgende gebed te gaan</li>
+                    <li>Bovenaan komt de <b>titel</b> tevoorschijn, dit is niet het gebed zelf</li>
+                    <li>Overal waar "aanhalingstekens" staan is het gebed zelf</li>
+                    <li>Soms verschijnt er ook een referentie naar de bijbel. Dan staat de locatie <i>schuin</i> en daaronder het stukje tekst</li>
+                    <li>Als er een <span style="border: 2px dotted black; opacity: 0.75;">blokje</span> staat die een gestreepte lijn er omheen heeft en minder zichtbaar is, dan helpt het u herinneren aan het mysterie. Dit hoeft dus niet te worden gebeden</li>
+                    <li>De groep met mysteries hoeft u niet zelf op te zoeken, die wordt automatisch elke dag gebruikt</li>
+                </ul>
+            </div>
+            <div>
+                <h2>Muziek</h2>
+                <p class="i">
+                    Mocht u Gregoriaanse gezangen willen luisteren, dan kunt u die op <a href="https://www.youtube.com/results?search_query=gregorian+chant">YouTube</a> of <a href="https://open.spotify.com/search/gregorian%20chant">Spotify</a> opzoeken
+                </p>
+            </div>
+            <button @click="step++">Begin</button>
+        </div>
+        <div x-show="step == 1">
+            <h2>Kruis teken</h2>
+            <p>In de naam van de Vader en de Zoon en de heilige Geest. Amen</p>
+            <button @click="step++">Volgende</button>
+        </div>
+        <div x-show="step == 2">
+            <h2>Apostolische geloofsbelijdenis</h2>
+            <p>
+                Ik geloof in God, de almachtige Vader, Schepper van hemel en aarde.<br>
+                En in Jesus Christus, zijn enige Zoon,<br>
+                die ontvangen is van de Heilige Geest, en geboren uit de maagd Maria,<br>
+                die geleden heeft onder Pontius Pilatus, is gekruisigd, gestorven en begraven,<br>
+                die nedergedaald is ter helle, de derde dag verrezen uit de doden,<br>
+                die opgestegen is ten hemel, zit aan de rechter hand van God, de almachtige Vader, vandaar zal Hij komen oordelen, de levenden en de doden,<br>
+                Ik geloof in de Heilige Geest, de heilige Katholieke Kerk, de gemeenschap van heiligen, de vergiffenis van zonden, de verrijzenis van het lichaam, en het eeuwig leven.<br>
+                Amen.
+            </p>
+            <button @click="step++">Volgende</button>
+        </div>
+        <div x-show="step == 3">
+            <h2>Wees gegroet Maria (variant 1)</h2>
+            <p>
+                Ik groet u, Maria, dochter van God de Vader<br>
+                Wees gegroet Maria, vol van genade.<br>
+                De heer is met u.<br>
+                Gij zijt gezegend onder de vrouwen en gezegend is Jesus, de vrucht van uw schoot.<br>
+                Heilige Maria, Moeder van God, bid voor ons zondaars,<br>
+                nu en in het uur van onze dood.<br>
+                Amen.
+            </p>
+            <button @click="step++">Volgende</button>
+        </div>
+        <div x-show="step == 4">
+            <h2>Wees gegroet Maria (variant 2)</h2>
+            <p>
+                Ik groet u, Maria, moeder van God de Zoon<br>
+                Wees gegroet Maria, vol van genade.<br>
+                De heer is met u.<br>
+                Gij zijt gezegend onder de vrouwen en gezegend is Jesus, de vrucht van uw schoot.<br>
+                Heilige Maria, Moeder van God, bid voor ons zondaars,<br>
+                nu en in het uur van onze dood.<br>
+                Amen.
+            </p>
+            <button @click="step++">Volgende</button>
+        </div>
+        <div x-show="step == 5">
+            <h2>Wees gegroet Maria (variant 3)</h2>
+            <p>
+                Ik groet u, Maria, bruid van God de Heilige Geest<br>
+                Wees gegroet Maria, vol van genade.<br>
+                De heer is met u.<br>
+                Gij zijt gezegend onder de vrouwen en gezegend is Jesus, de vrucht van uw schoot.<br>
+                Heilige Maria, Moeder van God, bid voor ons zondaars,<br>
+                nu en in het uur van onze dood.<br>
+                Amen.
+            </p>
+            <button @click="step++">Volgende</button>
+        </div>
+        <div x-show="step == 6">
+            <h2>Eer aan de Vader</h2>
+            <p>
+                Eer aan de Vader en de Zoon en de Heilige Geest.<br>
+                Zoals het was in het begin en nu en altijd en in de eeuwen der eeuwen.<br>
+                Amen.
+            </p>
+            <button @click="step++">Volgende</button>
+        </div>
+        <div x-show="step == 7 || (step >= 9 && step <= 18)" :class="step != 7 ? 'think' : ''">
+            <h2>Geheim 1</h2>
+            <p>
+                Het eerste geheim van de <span x-text="geheimen().name"></span>: <span x-text="geheimen().mysteries[0].title"></span>
+            </p>
+            <i>Van <span x-text="geheimen().mysteries[0].from"></span></i>
+            <p class="i" x-text="geheimen().mysteries[0].description"></p>
+            <button @click="step++" x-show="step == 7">Volgende</button>
+        </div>
+        <div x-show="step == 8">
+            <h2>Onze Vader</h2>
+            <p>
+                Onze Vader die in de hemel zijt,<br>
+                Uw Naam worde geheiligd,<br>
+                Uw rijk kome,<br>
+                Uw wil geschiede op aarde zoals in de hemel.<br>
+                Geef ons heden ons dagelijks brood en<br>
+                vergeef ons onze schulden, zoals ook wij<br>
+                vergeven aan onze schuldenaren, en breng <br>
+                ons niet in beproeving, maar verlos ons van het kwade.<br>
+                Amen.
+            </p>
+            <button @click="step++">Volgende</button>
+        </div>
+        <div x-show="step >= 9 && step <= 18">
+            <h2>Wees gegroet Maria (<span x-text="step - 8"></span>/10)</h2>
+            <p>
+                Wees gegroet Maria, vol van genade.<br>
+                De heer is met u.<br>
+                Gij zijt gezegend onder de vrouwen en gezegend is Jesus, de vrucht van uw schoot.<br>
+                Heilige Maria, Moeder van God, bid voor ons zondaars,<br>
+                nu en in het uur van onze dood.<br>
+                Amen.
+            </p>
+            <button @click="step++">Volgende</button>
+        </div>
+        <div x-show="step == 19">
+            <h2>Eer aan de Vader</h2>
+            <p>
+                Eer aan de Vader en de Zoon en de Heilige Geest.<br>
+                Zoals het was in het begin en nu en altijd en in de eeuwen der eeuwen.<br>
+                Amen.
+            </p>
+            <button @click="step++">Volgende</button>
+        </div>
+        <div x-show="step == 20">
+            <h2>Fatima gebed</h2>
+            <p>
+                O mijn Jezus, vergeef ons onze zonden; red ons van het vuur van de hel. Leid alle zielen naar de hemel, vooral degenen die het meest in nood zijn .
+            </p>
+            <button @click="step++">Volgende</button>
+        </div>
+        <div x-show="step == 21 || (step >= 23 && step <= 32)" :class="step != 21 ? 'think' : ''">
+            <h2>Geheim 2</h2>
+            <p>
+                Het tweede geheim van de <span x-text="geheimen().name"></span>: <span x-text="geheimen().mysteries[1].title"></span>
+            </p>
+            <i>Van <span x-text="geheimen().mysteries[1].from"></span></i>
+            <p class="i" x-text="geheimen().mysteries[1].description"></p>
+            <button @click="step++" x-show="step == 21">Volgende</button>
+        </div>
+        <div x-show="step == 22">
+            <h2>Onze Vader</h2>
+            <p>
+                Onze Vader die in de hemel zijt,<br>
+                Uw Naam worde geheiligd,<br>
+                Uw rijk kome,<br>
+                Uw wil geschiede op aarde zoals in de hemel.<br>
+                Geef ons heden ons dagelijks brood en<br>
+                vergeef ons onze schulden, zoals ook wij<br>
+                vergeven aan onze schuldenaren, en breng <br>
+                ons niet in beproeving, maar verlos ons van het kwade.<br>
+                Amen.
+            </p>
+            <button @click="step++">Volgende</button>
+        </div>
+        <div x-show="step >= 23 && step <= 32">
+            <h2>Wees gegroet Maria (<span x-text="step - 22"></span>/10)</h2>
+            <p>
+                Wees gegroet Maria, vol van genade.<br>
+                De heer is met u.<br>
+                Gij zijt gezegend onder de vrouwen en gezegend is Jesus, de vrucht van uw schoot.<br>
+                Heilige Maria, Moeder van God, bid voor ons zondaars,<br>
+                nu en in het uur van onze dood.<br>
+                Amen.
+            </p>
+            <button @click="step++">Volgende</button>
+        </div>
+        <div x-show="step == 33">
+            <h2>Eer aan de Vader</h2>
+            <p>
+                Eer aan de Vader en de Zoon en de Heilige Geest.<br>
+                Zoals het was in het begin en nu en altijd en in de eeuwen der eeuwen.<br>
+                Amen.
+            </p>
+            <button @click="step++">Volgende</button>
+        </div>
+        <div x-show="step == 34">
+            <h2>Fatima gebed</h2>
+            <p>
+                O mijn Jezus, vergeef ons onze zonden; red ons van het vuur van de hel. Leid alle zielen naar de hemel, vooral degenen die het meest in nood zijn .
+            </p>
+            <button @click="step++">Volgende</button>
+        </div>
+        <div x-show="step == 35 || (step >= 37 && step <= 46)" :class="step != 35 ? 'think' : ''">
+            <h2>Geheim 3</h2>
+            <p>
+                Het derde geheim van de <span x-text="geheimen().name"></span>: <span x-text="geheimen().mysteries[2].title"></span>
+            </p>
+            <i>Van <span x-text="geheimen().mysteries[2].from"></span></i>
+            <p class="i" x-text="geheimen().mysteries[2].description"></p>
+            <button @click="step++" x-show="step == 35">Volgende</button>
+        </div>
+        <div x-show="step == 36">
+            <h2>Onze Vader</h2>
+            <p>
+                Onze Vader die in de hemel zijt,<br>
+                Uw Naam worde geheiligd,<br>
+                Uw rijk kome,<br>
+                Uw wil geschiede op aarde zoals in de hemel.<br>
+                Geef ons heden ons dagelijks brood en<br>
+                vergeef ons onze schulden, zoals ook wij<br>
+                vergeven aan onze schuldenaren, en breng <br>
+                ons niet in beproeving, maar verlos ons van het kwade.<br>
+                Amen.
+            </p>
+            <button @click="step++">Volgende</button>
+        </div>
+        <div x-show="step >= 37 && step <= 46">
+            <h2>Wees gegroet Maria (<span x-text="step - 36"></span>/10)</h2>
+            <p>
+                Wees gegroet Maria, vol van genade.<br>
+                De heer is met u.<br>
+                Gij zijt gezegend onder de vrouwen en gezegend is Jesus, de vrucht van uw schoot.<br>
+                Heilige Maria, Moeder van God, bid voor ons zondaars,<br>
+                nu en in het uur van onze dood.<br>
+                Amen.
+            </p>
+            <button @click="step++">Volgende</button>
+        </div>
+        <div x-show="step == 47">
+            <h2>Eer aan de Vader</h2>
+            <p>
+                Eer aan de Vader en de Zoon en de Heilige Geest.<br>
+                Zoals het was in het begin en nu en altijd en in de eeuwen der eeuwen.<br>
+                Amen.
+            </p>
+            <button @click="step++">Volgende</button>
+        </div>
+        <div x-show="step == 48">
+            <h2>Fatima gebed</h2>
+            <p>
+                O mijn Jezus, vergeef ons onze zonden; red ons van het vuur van de hel. Leid alle zielen naar de hemel, vooral degenen die het meest in nood zijn .
+            </p>
+            <button @click="step++">Volgende</button>
+        </div>
+        <div x-show="step == 49 || (step >= 51 && step <= 60)" :class="step != 49 ? 'think' : ''">
+            <h2>Geheim 4</h2>
+            <p>
+                Het vierde geheim van de <span x-text="geheimen().name"></span>: <span x-text="geheimen().mysteries[3].title"></span>
+            </p>
+            <i>Van <span x-text="geheimen().mysteries[3].from"></span></i>
+            <p class="i" x-text="geheimen().mysteries[3].description"></p>
+            <button @click="step++" x-show="step == 49">Volgende</button>
+        </div>
+        <div x-show="step == 50">
+            <h2>Onze Vader</h2>
+            <p>
+                Onze Vader die in de hemel zijt,<br>
+                Uw Naam worde geheiligd,<br>
+                Uw rijk kome,<br>
+                Uw wil geschiede op aarde zoals in de hemel.<br>
+                Geef ons heden ons dagelijks brood en<br>
+                vergeef ons onze schulden, zoals ook wij<br>
+                vergeven aan onze schuldenaren, en breng <br>
+                ons niet in beproeving, maar verlos ons van het kwade.<br>
+                Amen.
+            </p>
+            <button @click="step++">Volgende</button>
+        </div>
+        <div x-show="step >= 51 && step <= 60">
+            <h2>Wees gegroet Maria (<span x-text="step - 50"></span>/10)</h2>
+            <p>
+                Wees gegroet Maria, vol van genade.<br>
+                De heer is met u.<br>
+                Gij zijt gezegend onder de vrouwen en gezegend is Jesus, de vrucht van uw schoot.<br>
+                Heilige Maria, Moeder van God, bid voor ons zondaars,<br>
+                nu en in het uur van onze dood.<br>
+                Amen.
+            </p>
+            <button @click="step++">Volgende</button>
+        </div>
+        <div x-show="step == 61">
+            <h2>Eer aan de Vader</h2>
+            <p>
+                Eer aan de Vader en de Zoon en de Heilige Geest.<br>
+                Zoals het was in het begin en nu en altijd en in de eeuwen der eeuwen.<br>
+                Amen.
+            </p>
+            <button @click="step++">Volgende</button>
+        </div>
+        <div x-show="step == 62">
+            <h2>Fatima gebed</h2>
+            <p>
+                O mijn Jezus, vergeef ons onze zonden; red ons van het vuur van de hel. Leid alle zielen naar de hemel, vooral degenen die het meest in nood zijn .
+            </p>
+            <button @click="step++">Volgende</button>
+        </div>
+        <div x-show="step == 63 || (step >= 65 && step <= 74)" :class="step != 63 ? 'think' : ''">
+            <h2>Geheim 5</h2>
+            <p>
+                Het vijfde geheim van de <span x-text="geheimen().name"></span>: <span x-text="geheimen().mysteries[4].title"></span>
+            </p>
+            <i>Van <span x-text="geheimen().mysteries[4].from"></span></i>
+            <p class="i" x-text="geheimen().mysteries[4].description"></p>
+            <button @click="step++" x-show="step == 63">Volgende</button>
+        </div>
+        <div x-show="step == 64">
+            <h2>Onze Vader</h2>
+            <p>
+                Onze Vader die in de hemel zijt,<br>
+                Uw Naam worde geheiligd,<br>
+                Uw rijk kome,<br>
+                Uw wil geschiede op aarde zoals in de hemel.<br>
+                Geef ons heden ons dagelijks brood en<br>
+                vergeef ons onze schulden, zoals ook wij<br>
+                vergeven aan onze schuldenaren, en breng <br>
+                ons niet in beproeving, maar verlos ons van het kwade.<br>
+                Amen.
+            </p>
+            <button @click="step++">Volgende</button>
+        </div>
+        <div x-show="step >= 65 && step <= 74">
+            <h2>Wees gegroet Maria (<span x-text="step - 64"></span>/10)</h2>
+            <p>
+                Wees gegroet Maria, vol van genade.<br>
+                De heer is met u.<br>
+                Gij zijt gezegend onder de vrouwen en gezegend is Jesus, de vrucht van uw schoot.<br>
+                Heilige Maria, Moeder van God, bid voor ons zondaars,<br>
+                nu en in het uur van onze dood.<br>
+                Amen.
+            </p>
+            <button @click="step++">Volgende</button>
+        </div>
+        <div x-show="step == 75">
+            <h2>Wees gegroet, Koningin</h2>
+            <p>
+                Wees gegroet, Koningin, Moeder van barmhartigheid, ons leven, onze zoetheid, onze hoop, wees gegroet. Tot U roepen wij, bannelingen, kinderen van Eva. Tot U verzuchten wij, klagend en wenend in dit tranendal. Welaan dan, onze Middelares, sla Uw barmhartige ogen op tot ons. En toon ons, na deze ballingschap, Jezus, de gezegende vrucht van Uw Lichaam. O genadige, o meedogende, o zoete Maagd Maria. Bid voor ons, Heilige Moeder Gods. Opdat wij de beloften van Christus waardig worden. Amen.
+            </p>
+            <button @click="step++">Volgende</button>
+        </div>
+        <div x-show="step == 76">
+            <h2>Slot gebed</h2>
+            <p>
+                Laat ons bidden: Wij smeken U, o God onze Heer, voortdurend de gezondheid van ziel en lichaam aan uw dienaren te geven, opdat zij door de glorierijke voorspraak der allerzaligste Maagd Maria, bevrijd blijven van de tegenwoordige beproevingen en eens het eeuwig geluk mogen genieten. Door Christus onze Heer. Amen.
+            </p>
+            <button @click="step++">Volgende</button>
+        </div>
+        <div x-show="step == 77">
+            <h1>U bent klaar</h1>
+            <p class="i">
+                Bronnen:
+            </p>
+            <ul>
+                <li><a href="https://www.katholiekleven.nl/documents/saved/h3bc57a9b4193b0e250e8fbbe32144b71.pdf">www.katholiekleven.nl</a></li>
+                <li><a href="https://www.vatican.va/special/rosary/documents/misteri_en.html">vatican.va</a></li>
+                <li>5e druk van "Bijbel in Gewone Taal"</li>
+            </ul>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</body>
+</html>
